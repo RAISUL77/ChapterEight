@@ -1,4 +1,4 @@
-package problem2;
+package problem1;
 
 public class CashRegisterRunner {
     public static void main (String[] args)
@@ -12,18 +12,18 @@ public class CashRegisterRunner {
         CashRegister register = new CashRegister();
 
         register.recordPurchase(2.19);
-        register.recordPurchase(1.96);
-        register.recordPurchase(4.91);
+        register.recordPurchase(1.95);
+        register.recordPurchase(10.95);
+        register.recordPurchase(8.70);
 
-        register.receivePayment(40, DOLLAR);
+        register.receivedPayment(20, DOLLAR);
+        register.receivedPayment(8, QUARTER);
+        register.receivedPayment(15, DIME);
+        register.receivedPayment(10, NICKEL);
+        register.receivedPayment(40, PENNY);
 
-        System.out.printf("Total Purchase: $%5.2f\nTotal Payment:  $%5.2f\nTotal Change:   $%5.2f\n",
-                register.getTotalPurchase(), register.getTotalPayment(), register.getTotalChange());
-        System.out.println("-----------------------------------------------------------");
-        System.out.printf("Number of Dollars: %3d\n", register.giveChange(DOLLAR));
-        System.out.printf("Number of Quarters: %2d\n", register.giveChange(QUARTER));
-        System.out.printf("Number of Dimes: %5d\n", register.giveChange(DIME));
-        System.out.printf("Number of Nickels: %3d\n", register.giveChange(NICKEL));
-        System.out.printf("Number of Pennies: %3d\n", register.giveChange(PENNY));
+        double change = register.giveChange();
+
+        System.out.printf("Change: %.2f\n", change);
     }
 }

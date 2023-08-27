@@ -1,4 +1,4 @@
-package problem2;
+package problem1;
 
 public class CashRegister {
     private double purchase;
@@ -15,7 +15,7 @@ public class CashRegister {
         purchase = purchase + amount;
     }
 
-    public void receivePayment(int coinCount, Coin coinType)
+    public void receivedPayment(int coinCount, Coin coinType)
     {
         payment = payment + coinCount * coinType.getCoinValue();
     }
@@ -35,21 +35,11 @@ public class CashRegister {
         return (payment - purchase);
     }
 
-    public int giveChange(Coin coinType)
+    public double giveChange()
     {
-        double coinValue = coinType.getCoinValue();
         double change = payment - purchase;
-        int numberOfCoins;
-
-        numberOfCoins = (int) (change / coinValue);
-
-        payment = payment - (coinValue * numberOfCoins);
-
-        if (coinType.getCoinValue() == 0.01)
-        {
-            numberOfCoins++;
-        }
-
-        return numberOfCoins;
+        purchase = 0;
+        payment = 0;
+        return change;
     }
 }

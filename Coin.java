@@ -1,15 +1,31 @@
-package problem3;
+package problem1;
 
 public class Coin {
-    public double value;
-    public String name;
-
-    public Coin(double aValue,String aName){
-        value = aValue;
-        name = aName;
+    private double coinValue;
+    private String coinName;
+    public Coin(double value, String name)
+    {
+        coinValue = value;
+        coinName = name;
     }
 
-    public double getValue() {
-        return value;
+    public double getCoinValue()
+    {
+        return coinValue;
+    }
+
+    public String getCoinName()
+    {
+        return coinName;
+    }
+
+    public void setCoinValue(double value)
+    {
+        this.coinValue = value;
+    }
+
+    public void setCoinName(String name)
+    {
+        this.coinName = name;
     }
 }
